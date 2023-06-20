@@ -5,8 +5,12 @@ function App() {
 
   return (
     <>
-     <Navbar></Navbar>
-     <Home></Home>
+     <div className="App">
+       <Navbar></Navbar>
+       <div className="content">
+         <Home></Home>
+       </div>
+     </div>
     </>
   )
 }
