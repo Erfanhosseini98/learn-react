@@ -1,6 +1,21 @@
+import { useState } from "react"
+
 const Home = () => {
+
+    const [a, setA] = useState('mario')
+    const [b, setB] = useState(25)
+    
+    const handleClick = () => {
+        setA('C')
+        setB(654)
+    }
+
+
     return( 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, assumenda</p>
+        <>
+            <p>......{a}......{b}</p>
+            <button onClick={handleClick}>Click me</button>
+        </>
     )
 }
 
