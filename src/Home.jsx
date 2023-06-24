@@ -13,11 +13,7 @@ const Home = () => {
     return (
         <>
             <div className="home">
-
                 <BlogList blogs={blogs} title="Blog Title is here"/>
-
-
-
             </div>
         </>
     )
