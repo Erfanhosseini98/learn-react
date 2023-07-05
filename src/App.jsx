@@ -1,20 +1,23 @@
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom"
 import Navbar from './Navbar'
-import Home from './Home'
-
-import { BrowserRouter,Routes,Route,Link,NavLink } from 'react-router-dom'
+import Home from './pages/Home'
+import Create from './pages/Create'
 
 function App() {
 
   return (
     <>
-     <BrowserRouter>
-       <div className="App">
-         <Navbar></Navbar>
-         <div className="content">
-           <Home></Home>
-         </div>
-       </div>
-     </BrowserRouter>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar></Navbar>
+          <div className="content">
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="Create" element={< Create />}></Route>
+            </Routes>
+          </div>
+        </div>
+      </BrowserRouter>
     </>
   )
 }
