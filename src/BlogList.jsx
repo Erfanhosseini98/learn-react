@@ -2,7 +2,6 @@
 const BlogList = ({ blogs ,title, handleDelete}) => {
 
 
-  console.log(blogs)
   return (
     <>
     <h3>{title}</h3>
