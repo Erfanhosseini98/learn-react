@@ -6,11 +6,18 @@ const Create = () => {
     const [author, setAuthor] = useState('Erfan')
 
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const blog = { title, body, author }
+
+        console.log(blog)
+    }
+
     return (
         <>
             <div className="create" >
                 <h2>Create a new blog post</h2>
-                <form action="">
+                <form onSubmit={handleSubmit}>
 
                     <label>Blog Title:</label>
                     <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
