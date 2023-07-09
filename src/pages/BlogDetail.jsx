@@ -1,12 +1,17 @@
-import { Link, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import useFetch from "../useFetch";
 
 const BlogDetail = () => {
     const { id } = useParams()
     const { data: blog, loading, error } = useFetch('http://localhost:8000/blogs/' + id)
-    console.log(id)
-
-    console.log(blog)
+    const naviagte = useNavigate()
+    const handleDelete = () => {
+        fetch('http://localhost:8000/blogs/' + id , {
+            method: 'DELETE'
+        }).then(() => {
+            naviagte('/')
+        })
+    }
     return (
         <div>
             {loading && <p>Loading post</p>}
@@ -14,26 +19,15 @@ const BlogDetail = () => {
             {
                 blog && (
                     <article>
-                        <Link to="/">
-                            <div><p> <strong>&lt;</strong>  back</p></div>
-                        </Link>
-                        <br />
-                        <hr />
-                        <br />
                         <h2>{blog.title}</h2>
-                        <h4>{blog.author}</h4>
+                        <p>{blog.author}</p>
                         <br />
-                        <hr />
-                        <br />
-                        <p>Article :</p>
                         <p>{blog.body}</p>
 
-
+                        <button onClick={handleDelete}>Delete</button>
                     </article>
                 )}
-
         </div>
-
     )
 }
 
