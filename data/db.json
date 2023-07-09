@@ -1,34 +1,46 @@
 {
-    "blogs": [
-        {
-            "title": "First Blog Post",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "author": "John Doe",
-            "id": 1
-        },
-        {
-            "title": "Tips for Effective Time Management",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "author": "Jane Smith",
-            "id": 2
-        },
-        {
-            "title": "The Benefits of Regular Exercise",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "author": "David Johnson",
-            "id": 3
-        },
-        {
-            "title": "Exploring New Frontiers in Science",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "author": "Emily Wilson",
-            "id": 4
-        },
-        {
-            "title": "Delicious Recipes for a Healthy Lifestyle",
-            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "author": "Sophia Brown",
-            "id": 5
-        }
-    ]
+  "blogs": [
+    {
+      "title": "First Blog Post",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "author": "John Doe",
+      "id": 1
+    },
+    {
+      "title": "Tips for Effective Time Management",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "author": "Jane Smith",
+      "id": 2
+    },
+    {
+      "title": "The Benefits of Regular Exercise",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "author": "David Johnson",
+      "id": 3
+    },
+    {
+      "title": "Exploring New Frontiers in Science",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "author": "Emily Wilson",
+      "id": 4
+    },
+    {
+      "title": "Delicious Recipes for a Healthy Lifestyle",
+      "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "author": "Sophia Brown",
+      "id": 5
+    },
+    {
+      "title": "transform your living space",
+      "body": "Discover the beauty of minimalist home decor and how it can transform your living space. Learn practical tips and tricks for decluttering and creating a serene environment.",
+      "author": "Erfan",
+      "id": 6
+    },
+    {
+      "title": "transform your living space",
+      "body": "Discover the beauty of minimalist home decor and how it can transform your living space. Learn practical tips and tricks for decluttering and creating a serene environment.",
+      "author": "Erfan",
+      "id": 7
+    }
+  ]
 }
