@@ -1,64 +1,58 @@
 {
-    "blogs": [
-        {
-            "title": "The Art of Minimalism in Home Decor",
-            "body": "Discover the beauty of minimalist home decor and how it can transform your living space. Learn practical tips and tricks for decluttering and creating a serene environment.\"\nAuthor: \"Jennifer Davis",
-            "author": "Erfan",
-            "id": 1
-        },
-        {
-            "title": "Mastering the Art of Public Speaking",
-            "body": "Unlock your potential as a confident and effective public speaker. This blog offers proven strategies, techniques, and exercises to help you overcome stage fright and captivate your audience.",
-            "author": "Erfan",
-            "id": 2
-        },
-        {
-            "title": "Exploring the Wonders of Wildlife Photography",
-            "body": "Embark on a visual journey through the lens of a wildlife photographer. Gain insights into capturing breathtaking shots, understanding animal behavior, and preserving the beauty of nature.",
-            "author": "Erfan",
-            "id": 3
-        }
-    ],
-    "authors": [
-        {
-            "id": 1,
-            "name": "Erfan"
-        },
-        {
-            "id": 2,
-            "name": "Emily"
-        },
-        {
-            "id": 3,
-            "name": "Michael"
-        },
-        {
-            "id": 4,
-            "name": "Sophia"
-        },
-        {
-            "id": 5,
-            "name": "Daniel"
-        },
-        {
-            "id": 6,
-            "name": "Olivia"
-        },
-        {
-            "id": 7,
-            "name": "William"
-        },
-        {
-            "id": 8,
-            "name": "Grace"
-        },
-        {
-            "id": 9,
-            "name": "Benjamin"
-        },
-        {
-            "id": 10,
-            "name": "Ava"
-        }
-    ]
+  "blogs": [
+    {
+      "title": "Mastering the Art of Public Speaking",
+      "body": "Unlock your potential as a confident and effective public speaker. This blog offers proven strategies, techniques, and exercises to help you overcome stage fright and captivate your audience.",
+      "author": "Erfan",
+      "id": 2
+    },
+    {
+      "title": "Exploring the Wonders of Wildlife Photography",
+      "body": "Embark on a visual journey through the lens of a wildlife photographer. Gain insights into capturing breathtaking shots, understanding animal behavior, and preserving the beauty of nature.",
+      "author": "Erfan",
+      "id": 3
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Erfan"
+    },
+    {
+      "id": 2,
+      "name": "Emily"
+    },
+    {
+      "id": 3,
+      "name": "Michael"
+    },
+    {
+      "id": 4,
+      "name": "Sophia"
+    },
+    {
+      "id": 5,
+      "name": "Daniel"
+    },
+    {
+      "id": 6,
+      "name": "Olivia"
+    },
+    {
+      "id": 7,
+      "name": "William"
+    },
+    {
+      "id": 8,
+      "name": "Grace"
+    },
+    {
+      "id": 9,
+      "name": "Benjamin"
+    },
+    {
+      "id": 10,
+      "name": "Ava"
+    }
+  ]
 }

@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Home from './pages/Home'
 import Create from './pages/Create'
 import BlogDetail from "./pages/BlogDetail"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
               <Route index element={<Home />} />
               <Route path="Create" element={< Create />}></Route>
               <Route path="Blog/:id" element={< BlogDetail />}></Route>
+              <Route path="*" element={< NotFound />}></Route>
+
             </Routes>
           </div>
         </div>
