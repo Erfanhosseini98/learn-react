@@ -1,10 +1,12 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
     const [author, setAuthor] = useState('Erfan')
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
 
     const handleSubmit = (e) => {
@@ -18,6 +20,7 @@ const Create = () => {
         }).then(
             setLoading(() => {
                 setLoading(false)
+                navigate("/")
             })
 
         )
