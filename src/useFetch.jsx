@@ -22,9 +22,9 @@ const useFetch = (url) => {
                     setError(e.message)
 
                 })
-        }, 0)
+        }, 1000)
     }, [url])
-    return {data,loading,error}
+    return { data, loading, error }
 }
- 
+
 export default useFetch

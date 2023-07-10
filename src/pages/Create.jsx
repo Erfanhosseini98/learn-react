@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import useFetch from "../useFetch"
 
 const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
-    const [author, setAuthor] = useState('Erfan')
+    const [author, setAuthor] = useState('')
     const [loading, setLoading] = useState(false)
+    const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors')
     const navigate = useNavigate()
-
-
     const handleSubmit = (e) => {
         e.preventDefault()
         const blog = { title, body, author }
@@ -25,29 +25,29 @@ const Create = () => {
 
         )
     }
-
-
     return (
         <>
             <div className="create" >
-                <h2>Create a new blog post</h2>
-                <form onSubmit={handleSubmit}>
 
+                <h2>Create a new blog post</h2>
+
+                <form onSubmit={handleSubmit}>
                     <label>Blog Title:</label>
                     <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
                     <label>Blog Body:</label>
                     <textarea required value={body} onChange={(e) => setBody(e.target.value)}></textarea>
+
                     <label>Blog author:</label>
-                    <select
-                        value={author} onChange={(e) => setAuthor(e.target.value)}>
-                        <option value="Erfan">Erfan</option>
-                        <option value="Eric">Eric</option>
+                    <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+                        {authorsError && <option>{authorsError}</option>}
+                        {authorsLoading && <option>Loading...</option>}
+                        {authors && authors.map((item) => {
+                            { console.log(item) }
+                            return <option key={item.id} value={item.id} >{item.name}</option>
+                        })}
                     </select>
                     {!loading && <button >Add Blog</button>}
                     {loading && <button disabled >Adding Blog ...</button>}
-                    <p>{title}</p>
-                    <p>{body}</p>
-                    <p>{author}</p>
 
                 </form>
             </div>
