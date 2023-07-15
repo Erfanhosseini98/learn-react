@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Create from './pages/Create'
 import BlogDetail from "./pages/BlogDetail"
 import NotFound from "./pages/NotFound"
+import EditPost from "./pages/EditPost"
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
               <Route path="Create" element={< Create />}></Route>
               <Route path="Blog/:id" element={< BlogDetail />}></Route>
               <Route path="*" element={< NotFound />}></Route>
+              <Route path="EditBlog/:id" element={< EditPost />}></Route>
 
             </Routes>
           </div>

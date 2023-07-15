@@ -5,7 +5,6 @@ const BlogDetail = () => {
     const { id } = useParams()
     const { data: blog, loading, error } = useFetch('http://localhost:8000/blogs/' + id)
     const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors/')
-
     const naviagte = useNavigate()
     const handleDelete = () => {
         fetch('http://localhost:8000/blogs/' + id, {
@@ -23,9 +22,11 @@ const BlogDetail = () => {
                 blog && (
                     <article>
                         <h2>{blog.title}</h2>
-                        <p>{
-                                    authorsLoading ? 'Loading' :  authors && authors.find(author => author.id === blog.authorId).name
-                                   }</p>
+                        <p>
+                            {
+                                authorsLoading ? 'Loading' : authors && authors.find(author => author.id === blog.authorId).name
+                            }
+                        </p>
                         <br />
                         <p>{blog.body}</p>
 
