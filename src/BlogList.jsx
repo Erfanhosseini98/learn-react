@@ -1,34 +1,28 @@
-import { Link } from "react-router-dom"
-import useFetch from "./useFetch"
+// import { Link } from "react-router-dom"
+// import useFetch from "./useFetch"
+import { useSelector, useDispatch } from "react-redux"
 
 
-const BlogList = ({ blogs, title }) => {
+const BlogList = ({ title }) => {
 
-    const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors')
+  // const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors')
+  const blogs = useSelector((state) => state.MyBlogs.blogs)
+  const loading = useSelector((state) => state.MyBlogs.loading)
+  const dispatch = useDispatch()
+  const clickMe = () => {
+    dispatch.MyBlogs.fillBlogsEffect()
+  }
 
 
-
-    return (
-        <>
-            <h3>{title}</h3>
-            <div className="blog-list">
-                {
-                    blogs.map((blog) => (
-                        <div className="blog-preview" key={blog.id}>
-                            <Link to={`Blog/${blog.id}`}>
-                                <h2>{blog.title}</h2>
-                                <p>Written by {
-                                    authorsLoading ? 'Loading' :  authors && authors.find(author => author.id === blog.authorId).name
-                                   }
-                                </p>
-                                <br />
-                            </Link>
-                        </div>
-                    ))
-                }
-            </div>
-        </>
-    )
+  return (
+    <>
+      <h3>{title}</h3>
+      <div className="blog-list">
+        <p onClick={clickMe}>Click</p>
+        {console.log(blogs,loading)}
+      </div>
+    </>
+  )
 }
 
 export default BlogList
