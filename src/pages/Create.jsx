@@ -5,13 +5,13 @@ import useFetch from "../useFetch"
 const Create = () => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
-    const [author, setAuthor] = useState('')
+    const [authorId, setAuthorId] = useState(1)
     const [loading, setLoading] = useState(false)
     const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors')
     const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
-        const blog = { title, body, author }
+        const blog = { title, body, authorId }
         setLoading(true)
         fetch('http://localhost:8000/blogs', {
             method: 'POST',
@@ -22,7 +22,6 @@ const Create = () => {
                 setLoading(false)
                 navigate("/")
             })
-
         )
     }
     return (
@@ -38,11 +37,10 @@ const Create = () => {
                     <textarea required value={body} onChange={(e) => setBody(e.target.value)}></textarea>
 
                     <label>Blog author:</label>
-                    <select value={author} onChange={(e) => setAuthor(e.target.value)}>
+                    <select value={authorId} onChange={(e) => setAuthorId(+e.target.value)}>
                         {authorsError && <option>{authorsError}</option>}
                         {authorsLoading && <option>Loading...</option>}
                         {authors && authors.map((item) => {
-                            { console.log(item) }
                             return <option key={item.id} value={item.id} >{item.name}</option>
                         })}
                     </select>
