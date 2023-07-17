@@ -1,11 +1,25 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../useFetch";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const BlogDetail = () => {
     const { id } = useParams()
-    const { data: blog, loading, error } = useFetch('http://localhost:8000/blogs/' + id)
+
+
+    const dispatch = useDispatch()
+    const blogs = useSelector((store) => store.MyBlogs.data)
+    const error = useSelector((store) => store.MyBlogs.error)
+    const loading = useSelector((store) => store.MyBlogs.loading)
+    useEffect(() => {
+        dispatch.MyBlogs.getBlogs()
+    }, [])
+    const blog = blogs.find(blog => blog.id == id)
+    
+    
+
     const { data: authors, loading: authorsLoading, error: authorsError } = useFetch('http://localhost:8000/authors/')
-    const naviagte = useNavigate()
+    const navigate = useNavigate()
     const handleDelete = () => {
         fetch('http://localhost:8000/blogs/' + id, {
             method: 'DELETE'
@@ -13,6 +27,7 @@ const BlogDetail = () => {
             naviagte('/')
         })
     }
+
 
     return (
         <div>
