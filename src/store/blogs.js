@@ -1,24 +1,48 @@
 export const MyBlogs = {
   state: {
-    blogs: [],
-    loading: true
+    data: [],
+    loading: true,
+    error: "",
   },
 
   reducers: {
-    fillBlogs(state) {
-      state.blogs.push({
-        name: "elahe",
-      });
+    setData: (state, payload) => {
       return {
         ...state,
-        loading: false
-      }
+        data: payload,
+      };
+    },
+    setLoading: (state, payload) => {
+      return {
+        ...state,
+        loading: payload,
+      };
+    },
+    setError: (state, payload) => {
+      return {
+        ...state,
+        error: payload,
+      };
     },
   },
 
   effects: {
-    fillBlogsEffect() {
-        this.fillBlogs()
-    }
+    async getBlogs() {
+      fetch("http://localhost:8000/blogs")
+        .then((res) => {
+          if (!res.ok) {
+            throw Error("could not fetch the data for that resource");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          this.setData(data);
+          this.setLoading(false);
+        })
+        .catch((e) => {
+          this.setLoading(false);
+          this.setError(e.message);
+        });
+    },
   },
 };
