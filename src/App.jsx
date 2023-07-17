@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Navbar from './Navbar'
+import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Create from './pages/Create'
 import BlogDetail from "./pages/BlogDetail"
@@ -12,7 +12,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
-          <Navbar></Navbar>
+          <Navbar/>
           <div className="content">
             <Routes>
               <Route index element={<Home />} />
