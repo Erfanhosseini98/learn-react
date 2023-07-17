@@ -3,9 +3,9 @@ import useFetch from "../useFetch"
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from "react"
 import BlogItem from "../components/BlogItem"
+import SearchBar from "../components/SearchBar"
 
 const Home = () => {
-    // const { error, loading, data: blogs } = useFetch()
     const dispatch = useDispatch()
     const blogs = useSelector((store) => store.MyBlogs.data)
     const error = useSelector((store) => store.MyBlogs.error)
@@ -17,9 +17,11 @@ const Home = () => {
     return (
         <>
             <div className="home">
-                <h3>All Blogs</h3>
+
+                {blogs && <SearchBar blogs={blogs} />}
                 {error && <div>{error}</div>}
                 {loading && <div>Loading...</div>}
+                <h3>All Blogs</h3>
                 {blogs &&
                     <div className="blog-list">
                         {
