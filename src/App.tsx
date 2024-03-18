@@ -1,10 +1,13 @@
 import ListGroup from "./components/ListGroup";
-const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
 
 function App() {
+  const items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+  const handelSelectItem = (item: string) => {
+   console.log(item) 
+  }
 	return (
 		<div>
-			<ListGroup items={items} heading="Cities" />
+			<ListGroup items={items} heading="Cities" onSelectItem={handelSelectItem}/>
 		</div>
 	);
 }
