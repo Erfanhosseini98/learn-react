@@ -1,11 +1,7 @@
-import Like from "./components/Like";
+import Form from "./components/Form";
 
 function App() {
-	return (
-		
-			<Like onClick={() => console.log("Clicked")}></Like>
-		
-	);
+	return <Form/>;
 }
 
 export default App;
