@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiFillLike, AiFillDislike } from "react-icons/ai";
 
 interface Props {
-    onClick: () => void;
+     onClick: () => void;
 }
 
 const Like = ({ onClick }: Props) => {
