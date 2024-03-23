@@ -1,10 +1,16 @@
 import react, { FormEvent, useRef, useState } from "react";
-import { useForm } from "react-hook-form";
-
+import { FieldValues, useForm } from "react-hook-form";
+interface FormData {
+	name: string;
+	age: number;
+}
 const Form = () => {
-	const { register ,handleSubmit} = useForm();
-    const onSubmit = (data : FieldValues ) => console.log(data);
-    
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<FormData>();
+	const onSubmit = (data: FieldValues) => console.log(data);
 	return (
 		<div className="row">
 			<form className="m-3 col-6" onSubmit={handleSubmit(onSubmit)}>
@@ -13,15 +19,22 @@ const Form = () => {
 						Name
 					</label>
 					<input
-						{...register("name")}
+						{...register("name", { required: true, minLength: 3 })}
 						type="text"
 						className="form-control"
 						id="nameInput"
 						aria-describedby="nameInput"
 					/>
-					<div id="nameInput" className="form-text">
-						We'll never share your name with anyone else.
-					</div>
+					{errors.name?.type === "required" && (
+						<div id="nameInput" className="form-text">
+							The name field is required.
+						</div>
+					)}
+					{errors.name?.type === "minLength" && (
+						<div id="nameInput" className="form-text">
+							The name must be at least 3 character.
+						</div>
+					)}
 				</div>
 				<div className="mb-3">
 					<label htmlFor="age" className="form-label">
