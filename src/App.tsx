@@ -1,7 +1,7 @@
-import Form from "./components/Form";
+import { Expense } from "./components/Expense";
 
 function App() {
-	return <Form/>;
+	return <Expense/>;
 }
 
 export default App;

@@ -41,11 +41,16 @@ const Form = () => {
 						Age
 					</label>
 					<input
-						{...register("age")}
+						{...register("age", { required: true })}
 						type="number"
 						className="form-control"
 						id="age"
 					/>
+					{errors.age?.type === "required" && (
+						<div id="nameInput" className="form-text">
+							The age field is required.
+						</div>
+					)}
 				</div>
 
 				<button type="submit" className="btn btn-primary">
