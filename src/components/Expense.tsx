@@ -2,7 +2,6 @@ import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 
-
 const schema = z.object({
 	description: z
 		.string()
@@ -13,17 +12,13 @@ const schema = z.object({
 	category: z.string().min(1, { message: "most select a category" }),
 });
 
-
-
 type FormData = z.infer<typeof schema>;
-
-
 
 export const Expense = () => {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors ,isValid},
+		formState: { errors, isValid },
 	} = useForm<FormData>({ resolver: zodResolver(schema) });
 	const onSubmit = (data: FieldValues) => console.log(data);
 
@@ -79,7 +74,6 @@ export const Expense = () => {
 							name="category"
 							id="category"
 						>
-
 							<option value="Health">Health</option>
 							<option value="Food">Food</option>
 							<option value="Taxi">Taxi</option>
@@ -90,7 +84,11 @@ export const Expense = () => {
 							</div>
 						)}
 					</div>
-					<button disabled={!isValid} type="submit" className="btn btn-primary">
+					<button
+						disabled={!isValid}
+						type="submit"
+						className="btn btn-primary"
+					>
 						Add
 					</button>
 				</form>
