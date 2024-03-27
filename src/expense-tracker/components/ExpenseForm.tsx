@@ -10,20 +10,23 @@ const schema = z.object({
 	amount: z
 		.number({ invalid_type_error: "Amount is required" })
 		.min(1, { message: "Amount must be Greater than 0." }),
-	category: z.enum(categories,{
-		errorMap: () => ({message: "Category is required."})
+	category: z.enum(categories, {
+		errorMap: () => ({ message: "Category is required." }),
 	}),
 });
 
 type ExpenseFormData = z.infer<typeof schema>;
 
-const ExpenseForm = () => {
+interface Props {
+	onSubmit: (data: ExpenseFormData) => void;
+}
+const ExpenseForm = ({ onSubmit }: Props) => {
 	const {
 		register,
 		handleSubmit,
+		reset,
 		formState: { errors, isValid },
 	} = useForm<ExpenseFormData>({ resolver: zodResolver(schema) });
-	const onSubmit = (data: FieldValues) => console.log(data);
 
 	return (
 		<>
@@ -34,7 +37,12 @@ const ExpenseForm = () => {
 					User-Friendly Expense Tracker for Complete Financial
 					Control.
 				</p>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form
+					onSubmit={handleSubmit((data) => {
+						onSubmit(data);
+						reset();
+					})}
+				>
 					<div className="mb-3">
 						<label className="mb-2" htmlFor="description">
 							Description
@@ -85,7 +93,7 @@ const ExpenseForm = () => {
 							))}
 						</select>
 						{errors.category && (
-							<div  className="form-text">
+							<div className="form-text">
 								{errors.category.message}
 							</div>
 						)}
