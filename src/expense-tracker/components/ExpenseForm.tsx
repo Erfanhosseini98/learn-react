@@ -30,7 +30,7 @@ const ExpenseForm = ({ onSubmit }: Props) => {
 
 	return (
 		<>
-			<div className="row mt-3">
+			<div className="mt-3">
 				<h1>Expense Tracker</h1>
 				<p>
 					Effortlessly Manage Your Finances with Our Comprehensive and
