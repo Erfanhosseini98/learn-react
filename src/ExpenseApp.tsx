@@ -16,7 +16,7 @@ function ExpenseApp() {
 	const [expenses, setExpenses] = useState<ExpenseData[]>([]);
 	const [selectedCategory, setSelectedCategory] = useState<String>("");
 	const [error, setError] = useState("");
-	const [isloaading, setLoading] = useState(false);
+	const [isloading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const controller = new AbortController();
@@ -49,7 +49,7 @@ function ExpenseApp() {
 					{error}
 				</div>
 			)}
-			{isloaading && <div className="spinner-border"></div>}
+			{isloading && <div className="spinner-border"></div>}
 			<div className="row mt-3">
 				<ExpenseForm
 					onSubmit={(expense) =>
