@@ -52,12 +52,26 @@ function ExpenseApp() {
 			{isloading && <div className="spinner-border"></div>}
 			<div className="row mt-3">
 				<ExpenseForm
-					onSubmit={(expense) =>
+					onSubmit={(expense) => {
+						const originalExpenses = [...expenses];
+
 						setExpenses([
 							...expenses,
 							{ ...expense, id: expenses.length + 1 },
-						])
-					}
+						]);
+						axios
+							.post("http://localhost:3000/expenses/", {
+								...expense,
+								id: expenses.length + 1,
+							})
+							.then(({ data: savedExpense }) =>
+								setExpenses([savedExpense, ...expenses])
+							)
+							.catch((err) => {
+								setError(err.message);
+								setExpenses(originalExpenses);
+							});
+					}}
 				/>
 			</div>
 			<div className="row mt-3">
@@ -72,15 +86,13 @@ function ExpenseApp() {
 					<ExpenseList
 						expenses={visibleExpenses}
 						onDelete={(id) => {
-							const originalUsers = [...expenses];
+							const originalExpenses = [...expenses];
 							setExpenses(expenses.filter((e) => e.id !== id));
 							axios
-								.delete(
-									"http://localhost:3000/expenses/" +  id 
-								)
+								.delete("http://localhost:3000/expenses/" + id)
 								.catch((err) => {
 									setError(err.message);
-									setExpenses(originalUsers);
+									setExpenses(originalExpenses);
 								});
 						}}
 					/>
