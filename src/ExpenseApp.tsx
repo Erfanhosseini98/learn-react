@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseForm from "./expense-tracker/components/ExpenseForm";
-import axios, { CanceledError } from "axios";
-import { set } from "react-hook-form";
-
+import apiClient , { CanceledError} from '../services/api-client'
 export interface ExpenseData {
 	id: number;
 	description: string;
@@ -21,8 +19,8 @@ function ExpenseApp() {
 	useEffect(() => {
 		const controller = new AbortController();
 		setLoading(true);
-		axios
-			.get<ExpenseData[]>("http://localhost:3000/expenses", {
+		apiClient
+			.get<ExpenseData[]>("/expenses", {
 				signal: controller.signal,
 			})
 			.then((res) => {
@@ -59,8 +57,8 @@ function ExpenseApp() {
 							...expenses,
 							{ ...expense, id: expenses.length + 1 },
 						]);
-						axios
-							.post("http://localhost:3000/expenses/", {
+						apiClient
+							.post("/expenses/", {
 								...expense,
 								id: expenses.length + 1,
 							})
@@ -88,8 +86,8 @@ function ExpenseApp() {
 						onDelete={(id) => {
 							const originalExpenses = [...expenses];
 							setExpenses(expenses.filter((e) => e.id !== id));
-							axios
-								.delete("http://localhost:3000/expenses/" + id)
+							apiClient
+								.delete("/expenses/" + id)
 								.catch((err) => {
 									setError(err.message);
 									setExpenses(originalExpenses);

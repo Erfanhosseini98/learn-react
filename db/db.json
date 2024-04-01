@@ -2,27 +2,9 @@
   "expenses": [
     {
       "id": 1,
-      "description": "345",
-      "amount": 345,
-      "category": "Utilities"
-    },
-    {
-      "id": 2,
-      "description": "345",
-      "amount": 34545,
-      "category": "Healthcare"
-    },
-    {
-      "id": 3,
-      "description": "weere",
-      "amount": 45,
-      "category": "Food"
-    },
-    {
-      "id": 4,
-      "description": "2rfed",
-      "amount": 4,
-      "category": "Utilities"
+      "description": "rent home",
+      "amount": 1200,
+      "category": "Housing"
     }
   ],
   "categories": [
